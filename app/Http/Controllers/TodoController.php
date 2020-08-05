@@ -59,4 +59,58 @@ class TodoController extends Controller
         $todo->save();
         return redirect(route('todos.index'));
     }
+
+
+    public function show(Todo $todo){
+        // Todo $todo is equal to 
+        // SElECT * FROM todos WHERE id = $todo
+
+
+        // Todo $todo - model Todo will get the row with the is of $todo value
+
+        // $todo variable will be the result of the  entire row of the model Todo
+
+        // $resultTodo = Todo::findOrfail($todo);
+
+
+
+        return view('todos.show')->with('todo', $todo); //variable and value
+    }
+
+
+    public function destroy(Todo $todo) {
+          
+        // $resultTodo = Todo::findOrfail($todo);
+
+        $todo->delete();
+
+
+        return redirect(route('todos.index'));
+
+
+    }
+
+
+    public function edit(Todo $todo) {
+
+        return view('todos.edit')->with('todo', $todo);
+
+    }
+
+
+    public function update(Todo $todo, Request $request) {
+
+
+        $todo->todo = $request->input('todo');
+        $todo->save();
+
+        // return back(); to return to own page
+
+
+        return redirect(route('todos.index'));
+
+
+
+    }
+
 }

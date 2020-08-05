@@ -6,11 +6,8 @@
 @foreach($todos as $todo)
 	<li>
 		{{ $todo->id }} {{ $todo->todo }}
-		<a href="">View</a>
-		<a href="">Edit</a>
-		<form action="">
-			<button>Delete</button>
-		</form>
+		<a href="{{route('todos.show', ["todo" => $todo->id]) }}">View</a>
+		@include('todos.partials.settings')
 	</li>
 @endforeach
 </ul>

@@ -24,8 +24,21 @@ Route::get('/welcome', "TodoController@welcome");
 
 
 
-Route::get('/todos', 'TodoController@index')->name('todos.index');
+// Route::get('/todos', 'TodoController@index')->name('todos.index');
 
-Route::get('/todos/create', 'TodoController@create')->name('todos.create');
+// Route::get('/todos/create', 'TodoController@create')->name('todos.create');
 
-Route::post('/todos', 'TodoController@store')->name('todos.store');
+// Route::post('/todos', 'TodoController@store')->name('todos.store');
+
+// Route::get('/todos/{todo}', 'TodoController@show')->name('todos.show');
+
+// Route::delete('todos/{todo}', 'TodoController@destroy')->name('todos.destroy');
+
+// Route::get('/todos/{todo}/edit', 'TodoController@edit')->name('todos.edit');
+
+// Route::put('/todos/{todo}', 'TodoController@update')->name('todos.update');
+
+
+// or the shortcut way
+
+Route::resource('/todos', 'TodoController');
